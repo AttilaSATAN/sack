@@ -1,5 +1,4 @@
 import customer from './customer'
-
-console.log(customer)
+import './sass/main.scss'
 
 export default customer;

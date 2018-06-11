@@ -4,8 +4,10 @@ import 'angular-mocks';
 
 describe('customer module ', function(){
     
-    it(' should have name as `customer`', function(){
+    it(' should have named as `customer`', function(){
         expect(customer.name).toEqual('customer')
     });
 
-})
+
+
+});

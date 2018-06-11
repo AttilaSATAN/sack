@@ -18,6 +18,11 @@ module.exports = {
         }
       },
       {
+        test: /\.html$/,
+        exclude: [/node_modules/, /index/],
+        use: {loader: 'html-loader'}
+      },
+      {
         test: /\.scss$/,
         use: [{
             loader: MiniCssExtractPlugin.loader

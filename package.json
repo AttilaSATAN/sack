@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "rm -rf dist && webpack --watch --mode development",
-    "build": "webpack --mode production",
+    "build": "rm -rf dist && webpack --mode production",
     "test": "jest"
   },
   "jest": {
@@ -28,6 +28,7 @@
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.7.0",
     "css-loader": "^0.28.11",
+    "html-loader": "^0.5.5",
     "jest": "^23.1.0",
     "jest-cli": "^23.1.0",
     "mini-css-extract-plugin": "^0.4.0",

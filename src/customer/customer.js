@@ -9,10 +9,10 @@ import customerCollectionProvider from './customer-collection';
  */
 export class Customer {
     constructor(customer) {
-        if (!customer.name || !customer.country || !customer.city || !customer.mail) {
-            throw new CustomerRegistrationError('Please fill all the fields.')
-        }
-        this.mail = mail;
+        // if (!customer.name || !customer.country || !customer.city || !customer.mail) {
+        //     throw new CustomerRegistrationError('Please fill all the fields.')
+        // }
+        this.mail = customer.mail;
         this.name = customer.name;
         this.country = customer.country;
         this.city = customer.city;

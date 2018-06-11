@@ -1,6 +1,6 @@
 import 'angular';
 import '@uirouter/angularjs';
-import customerModuleConfig from './customer.state.config';
+import customerStateConfig from './customer.state.config';
 import CustomerListController from './customer-list.controller';
 import Customer from './customer';
 
@@ -16,8 +16,8 @@ import Customer from './customer';
 */
 const customer = angular.module('customer', ['ui.router', 'error']);
 
-customer.config(customerModuleConfig);
-customer.factory('CustomerFactory', CustomerFactory)
+customer.config(customerStateConfig);
+// customer.factory('CustomerFactory', CustomerFactory)
 customer.controller('CustomerListController', CustomerListController);
 
 angular.bootstrap(document, ['customer']);

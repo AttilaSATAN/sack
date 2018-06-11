@@ -16,5 +16,4 @@ function  customerCollectionProvider(Customer) {
     ]
 }
 
-
 export default customerCollectionProvider; 

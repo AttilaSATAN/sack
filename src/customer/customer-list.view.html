@@ -1,6 +1,6 @@
 <h1>Customers</h1>
 <div class="list-group">
     <a ui-sref="customer.detail(mail:customer.email)" class="list-group-item list-group-item-action" ng-repeat="customer in vm.customers">
-        customer.name
+        {{customer.name}}
     </a>
 </div>

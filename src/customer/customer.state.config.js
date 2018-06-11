@@ -1,7 +1,8 @@
+'use strict';
 
 import customerListTemplate from './customer-list.view.html';
 
-customerModuleConfig.$inject = ['$urlRouterProvider', '$stateProvider', '$locationProvider'];
+customerModuleConfig.$inject = ['$urlRouterProvider', '$locationProvider', '$stateProvider'];
 /**
 * Configures ui-router's states.
 * @memberof customer
@@ -14,7 +15,8 @@ customerModuleConfig.$inject = ['$urlRouterProvider', '$stateProvider', '$locati
 function customerModuleConfig($urlRouterProvider, $locationProvider, $stateProvider){
 
     $urlRouterProvider.otherwise('/');
-    $locationProvider.html5mode(true);
+    $locationProvider.html5Mode(true);
+
 
     $stateProvider
         .state('root', {
@@ -28,4 +30,4 @@ function customerModuleConfig($urlRouterProvider, $locationProvider, $stateProvi
 
 }
 
-export default customerModuleConfig;
+export {customerModuleConfig};

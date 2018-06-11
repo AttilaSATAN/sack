@@ -1,2 +1,3 @@
-import customer from './customer.module'
-export default customer;
+import error from '../error';
+import customer from './customer.module';
+export {customer};

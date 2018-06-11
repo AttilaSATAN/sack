@@ -1,4 +1,4 @@
-import './customer-collection'
+import customerCollectionProvider from './customer-collection';
 
 /**
  * @ngdoc service
@@ -7,35 +7,37 @@ import './customer-collection'
  * @description
  * Represantation of customer
  */
-class Customer {
+export class Customer {
     constructor(customer) {
         if (!customer.name || !customer.country || !customer.city || !customer.mail) {
             throw new CustomerRegistrationError('Please fill all the fields.')
         }
-        
         this.mail = mail;
         this.name = customer.name;
         this.country = customer.country;
         this.city = customer.city;
-
     }
 
     /**
      * @ngdoc method
      * @name customer.service.Customer#save
      * @description
-     * Persists updates or newly created Customer instances.
+     * Persists updates or newly created Customer.
      */
     save() {
 
     }
 }
 
-/* Static methods for Customer class */
+Customer.$inject = ['CustomerRegistrationError'];
 Customer.getByMail = getByMail;
 Customer.list = list;
 
+const customerCollection = customerCollectionProvider(Customer);
+
 /**
+ * @ngdoc
+ * @name custom.service.Customer.getByMail
  * @description Finds customer by emain and returs if its exist. Else returns nul.
  * @param {string} mail Customer email.
  * @returns {Customer||null} Customer found base on mail. 
@@ -52,10 +54,9 @@ function getByMail(mail) {
 
 /**
  * @description Returns a list of customers.
- * @returns []<Customer>
+ * @returns {[<Customer>]} Array of customers as Customer instances
  */
 function list() {
-
 
     return customerCollection;
 }

@@ -1,2 +1,2 @@
 import error from './error.module';
-export {error}
+export default error;

@@ -1,38 +1,39 @@
 'use strict';
 
-import customerListTemplate from './customer-list.view.html';
-import homeTemplate from '../home/home.view.html';
+import customerListTemplate from './views/customer-list.view.html';
 
-customerModuleConfig.$inject = ['$urlRouterProvider', '$locationProvider', '$stateProvider'];
+
+customerModuleConfig.$inject = [ '$stateProvider'];
 /**
-* Configures ui-router's states.
-* @memberof customer
-* @ngdoc config
-* @name customerModuleConfig
-* @param {Service} $urlRouterProvider Watches $location and provides interface to default state
-* @param {Service} $stateProvider Provides UI-Router State configuration object 
-* @param {Service} $locationProvider Used for setting html5mode
-*/
- function customerModuleConfig($urlRouterProvider, $locationProvider, $stateProvider){
+ * Configures ui-router's states.
+ * @memberof customer
+ * @ngdoc config
+ * @name customerModuleConfig
 
-    $urlRouterProvider.otherwise('/');
-    $locationProvider.html5Mode(true);
+ * @param {Service} $stateProvider Provides UI-Router State configuration object 
+ * @param {Service} $locationProvider Used for setting html5mode */
+function customerModuleConfig( $stateProvider) {
 
     $stateProvider
-        .state('root', {
-            url: '/',
-            template: homeTemplate
-        })
-        .state('root.customer', {
-            url: 'customer',
 
-            template:'<ui-view/>'
+        .state('customer', {
+            url: '/customer',
+            abstract: true
         })
-        .state('root.customer.list', {
-            resolve:function(){console.log('asdad')},
+        .state('customer.list', {
+            resolve: {
+                customers:  function(Customer){
+                    return 'Customer.list()'
+                }
+            },
             url: '/list',
-            controller: 'CustomerListController as vm',
-            template: customerListTemplate
+            views: {
+                'main@': {
+                    controller: 'CustomerListController as vm',
+                    template: customerListTemplate
+                }
+            }
+
         });
 }
 

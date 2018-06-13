@@ -1,25 +1,25 @@
-import 'angular';
-import '@uirouter/angularjs';
+import CustomerFactory from './services/customer.factory';
+import CustomerListController from './controllers/customer-list.controller';
 import customerStateConfig from './customer.state.config';
-import CustomerListController from './customer-list.controller';
-import Customer from './customer';
 
 
 
 /**
-  * @ngdoc overview
-  * @name customer.module:customer
-  *
-  * @description
-  * Customer module 
-  * 
-*/
-const customer = angular.module('customer', ['ui.router', 'error']);
+ * @ngdoc overview
+ * @name customer.module:customer
+ *
+ * @description
+ * Customer module 
+ * 
+ */
+const customer = angular.module('customer', ['ui.router', 'error'])
+  .config(customerStateConfig)
+  .factory('Customer', CustomerFactory)
+  .controller('CustomerListController', CustomerListController);
 
-customer.config(customerStateConfig);
-// customer.factory('CustomerFactory', CustomerFactory)
-customer.controller('CustomerListController', CustomerListController);
 
-angular.bootstrap(document, ['customer']);
+
+
+
 
 export default customer;

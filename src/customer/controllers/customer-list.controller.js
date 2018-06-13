@@ -7,11 +7,13 @@
  * Main Controller for customer
  */
 class CustomerListController {
-  constructor() {
-    console.log('AAAAAAAAAAA')
+  constructor(customers) {
+
     const vm = this;
-    vm.customers = Customer.list();
+    vm.customers = customers;
   }
+
 }
+CustomerListController.$inject = ['customers'];
 
 export default CustomerListController;

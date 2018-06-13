@@ -1,0 +1,12 @@
+<div class="p-3 p-md-5 text-white bg-dark">
+    <div class="col-md-12 px-0">
+      <h1 class="display-4 font-italic">Customer List </h1>
+      <p class="lead mb-0"><a class="text-white font-weight-bold" ui-sref="customer.list">Add Customer</a></p>
+    </div>
+  </div>
+
+<div class="list-group">
+    <a ui-sref="customer.detail(mail:customer.email)" class="list-group-item list-group-item-action" ng-repeat="customer in vm.customers">
+        {{customer.name}}
+    </a>
+</div>

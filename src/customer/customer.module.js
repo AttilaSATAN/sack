@@ -1,5 +1,6 @@
 import CustomerFactory from './services/customer.factory';
 import CustomerListController from './controllers/customer-list.controller';
+import CustomerEditController from './controllers/customer-edit.controller';
 import customerStateConfig from './customer.state.config';
 
 
@@ -15,8 +16,8 @@ import customerStateConfig from './customer.state.config';
 const customer = angular.module('customer', ['ui.router', 'error'])
   .config(customerStateConfig)
   .factory('Customer', CustomerFactory)
-  .controller('CustomerListController', CustomerListController);
-
+  .controller('CustomerListController', CustomerListController)
+  .controller('CustomerEditController', CustomerEditController);
 
 
 

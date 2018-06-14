@@ -1,0 +1,31 @@
+<div class="p-3 p-md-5 text-white bg-dark">
+    <div class="col-md-12 px-0" ng-if="!vm.edit">
+      <h1 class="display-4 font-italic">{{vm.customer.name}} <a class="oi oi-pencil" ng-click="vm.edit=true;" title="Edit" aria-hidden="true"></a></h1>
+      <p class="lead my-3"><small class="text-light">{{vm.customer.email}}</small></p>
+      <p class="lead mb-0"><a class="text-white font-weight-bold">{{vm.customer.city}}</a></p>
+      <p class="lead mb-0"><a class="text-white font-weight-bold">{{vm.customer.country}}</a></p>
+    </div>
+    <form ng-if="vm.edit" name="customerEditForm" ng-submit="vm.customer.save();">
+        <div class="form-group" >
+          <label for="nameInput">Customer Name</label>
+          <input type="text" required ng-model="vm.customer.name" class="form-control" id="nameInput" name="nameInput" placeholder="Full Name">
+          <small class="form-text text-muted" ng-messages="customerEditForm.nameInput.$error"><div class="invalid-feedback" ng-message="required">You did not enter a field</div></small>
+        </div>
+        <div class="form-group" >
+            <label for="mailInput">Email Address</label>
+            <input type="email" required ng-model="vm.customer.email" class="form-control" id="mailInput" name="mailInput" placeholder="mail@example.com">
+            <small class="form-text text-muted" ng-messages="customerEditForm.mailInput.$error"><div class="invalid-feedback" ng-message="required">You did not enter a field</div></small>
+          </div>
+          <div class="form-group" >
+            <label for="cityInput">City</label>
+            <input type="text" required ng-model="vm.customer.city" class="form-control" id="cityInput" name="cityInput" placeholder="İzmir">
+            <small class="form-text text-muted" ng-messages="customerEditForm.cityInput.$error"><div class="invalid-feedback" ng-message="required">You did not enter a field</div></small>
+          </div>
+          <div class="form-group" >
+            <label for="countryInput">Country</label>
+            <input type="text" required ng-model="vm.customer.country" class="form-control" id="countryInput" name="countryInput" placeholder="Turkey">
+            <small class="form-text text-muted" ng-messages="customerEditForm.countryInput.$error"><div class="invalid-feedback" ng-message="required">You did not enter a field</div></small>
+          </div>
+          <button type="submit" class="btn btn-primary" >Save</button>
+    </form>
+  </div>

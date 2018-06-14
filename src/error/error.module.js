@@ -5,6 +5,4 @@ const error = angular.module('error', [])
 
 error.factory('CustomerRegistrationError', CustomerRegistrationErrorFactory);
 
-
-
 export default error;

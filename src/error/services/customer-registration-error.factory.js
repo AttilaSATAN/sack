@@ -1,4 +1,5 @@
-export function CustomerRegistrationErrorFactory(){
+ function CustomerRegistrationErrorFactory(){
+
     return class CustomerRegistrationError extends Error {
         constructor(message){
             super(message)
@@ -7,3 +8,4 @@ export function CustomerRegistrationErrorFactory(){
     }
 }
 
+export default CustomerRegistrationErrorFactory;

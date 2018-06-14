@@ -16,7 +16,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbar-supported-content" ng-class="{show:vm.showMenu}">
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
+              <li class="nav-item " ng-class="{active:uiState.$current.has('home')}">
                 <a class="nav-link" ui-sref="home">Home </a>
               </li>
               <li class="nav-item">

@@ -1,4 +1,5 @@
 import 'angular';
+import 'angular-messages';
 import '@uirouter/angularjs';
 import error from './error'
 import customer from './customer'

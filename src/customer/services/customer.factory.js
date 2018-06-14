@@ -8,15 +8,16 @@ CustomerFactory.$inject = ['CustomerRegistrationError'];
  * @description
  * Represantation of customer
  */
-export function CustomerFactory(CustomerRegistrationError){
+function CustomerFactory(CustomerRegistrationError){
 
     class Customer {
         constructor(customer) {
     
-            this.mail = customer.mail;
+            this.email = customer.email;
             this.name = customer.name;
             this.country = customer.country;
             this.city = customer.city;
+            this.id = customer.id;
         }
     
         /**
@@ -25,41 +26,54 @@ export function CustomerFactory(CustomerRegistrationError){
          * @description
          * Persists updates or newly created Customer.
          */
-        save() {
-            if (!this.name || !this.country || !this.city || !this.mail) {
+        async save() {
+            if (!this.name || !this.country || !this.city || !this.email) {
                 throw new CustomerRegistrationError('Please fill all the fields.')
+            }
+            if(!this.id) {
+                Customer.collection.push(this);
+                this.id = Customer.collection.length; //ugly but effective in this context;
+                return Promise.resolve(this);
+            }
+            for(let c of Customer.collection){
+                if(c.id === this.id) {
+                    c = this;
+                    return Promise.resolve(this);
+                }
             }
         }
     }
     
-    Customer.getByMail = getByMail;
+    Customer.getByEMail = getByEMail;
     Customer.list = list;
     Customer.collection = [
         new Customer({
+            id:0,
             email: 'attila.satan@gmail.com',
             name: 'Attila Satan',
             country: 'Turkey',
-            city: 'Ankara'
+            city: 'Ankara',
         }), new Customer({
+            id:1,
             email: 'cigdem.satan@gmail.com',
             name: 'Çiğdem Satan',
             country: 'Turkey',
-            city: 'Ankara'
+            city: 'Ankara',
         })
     ]
     
     
     /**
      * @ngdoc
-     * @name custom.service.Customer.getByMail
+     * @name custom.service.Customer.getByEMail
      * @description Finds customer by emain and returs if its exist. Else returns nul.
      * @param {string} mail Customer email.
      * @returns {Customer||null} Customer found base on mail. 
      */
-    function getByMail(mail) {
+    function getByEMail(email) {
     
         for (let c of this.collection) {
-            if (c.mail === mail)
+            if (c.email === email)
                 return new Customer(c);
         }
     
@@ -72,10 +86,11 @@ export function CustomerFactory(CustomerRegistrationError){
      */
     function list() {
     
-        return collection;
+        return this.collection;
     }
 
     return Customer;
 } 
 
 
+export default CustomerFactory;

@@ -1,12 +1,26 @@
 class CustomerEditController{
-    constructor(customer){
-        const vm = this;
+    constructor($scope, customer, Customer){
 
-        vm.customer = customer;
-        if(!vm.customer.email) {
-            vm.edit = true;
+        const vm = this;
+        this.scope = $scope;
+        this.customer = customer;
+
+        if(!this.customer.id && this.customer.id !== 0) {
+            this.customer = new Customer({});
+            this.edit = true;
         }
     }
+    async save(){
+        try {
+            await this.customer.save();
+        } catch(e){
+            
+        }
+
+        this.scope.$apply(()=>{this.edit = false;})
+
+    }
 }
-CustomerEditController.$inject = ['customer'];
+
+CustomerEditController.$inject = ['$scope', 'customer', 'Customer'];
 export default CustomerEditController

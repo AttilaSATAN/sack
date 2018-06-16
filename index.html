@@ -8,8 +8,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="main.css">
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<body clasS="d-flex flex-column align-items-stretch">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
         <a class="navbar-brand" href="/">Ultrasonic Customer Web Application </a> 
         <button class="navbar-toggler" type="button" ng-click="vm.showMenu = !vm.showMenu" aria-controls="navbar-supported-content" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -26,7 +26,8 @@
         </div>   
     </nav>
 
-    <section  ui-view="main"></section>
+    <section ui-view="main"></section>
+    <section class="p-2 mt-auto align-bottom" >attila.satan@gmail.com</section>
 </body>
 <script src="main.js"></script>
 </html>

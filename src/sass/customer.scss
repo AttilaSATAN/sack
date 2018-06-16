@@ -1,3 +1,13 @@
+$color-red: #c53a3a;
+
+html, body {
+    height: 100%;
+}
 h1{
-    color:#c53a3a;
+    color:$color-red;
+}
+.error-alert {
+    background-color: $color-red;
+    text-align: center;
+    font-weight: 600;
 }

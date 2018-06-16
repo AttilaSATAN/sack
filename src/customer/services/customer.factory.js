@@ -30,14 +30,15 @@ function CustomerFactory(CustomerRegistrationError){
             if (!this.name || !this.country || !this.city || !this.email) {
                 throw new CustomerRegistrationError('Please fill all the fields.')
             }
-            if(!this.id) {
+            if(!this.id && this.id !== 0) { //create
+                //TODO: (optional) check for email
                 Customer.collection.push(this);
-                this.id = Customer.collection.length; //ugly but effective in this context;
+                this.id = Customer.collection.length -1; //ugly but effective in this context;
                 return Promise.resolve(this);
             }
-            for(let c of Customer.collection){
-                if(c.id === this.id) {
-                    c = this;
+            for(let i in Customer.collection){
+                if(Customer.collection[i].id === this.id) {
+                    Customer.collection[i] = this;
                     return Promise.resolve(this);
                 }
             }

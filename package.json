@@ -4,14 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "rm -rf dist && webpack --watch --mode development",
+    "dev": "node dev-ser --mode development",
     "build": "rm -rf dist && webpack --mode production",
     "test": "jest"
   },
   "jest": {
     "transform": {
-      "^.+\\.js?$": "babel-jest"
-    }
+      "^.+\\.js?$": "babel-jest",
+      "^.+\\.(html|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test/util/html-loader.js"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "html"
+    ]
   },
   "keywords": [],
   "author": "Attila Satan",

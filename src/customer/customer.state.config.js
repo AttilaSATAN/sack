@@ -4,7 +4,7 @@ import customerListTemplate from './views/customer-list.view.html';
 import customerEditTemplate from './views/customer-edit.view.html';
 import customerNotFoundTemplate from './views/customer-not-found.view.html';
 
-customerModuleConfig.$inject = [ '$stateProvider'];
+customerModuleConfig.$inject = ['$stateProvider'];
 /**
  * Configures ui-router's states.
  * @memberof customer
@@ -13,7 +13,7 @@ customerModuleConfig.$inject = [ '$stateProvider'];
 
  * @param {Service} $stateProvider Provides UI-Router State configuration object 
  * @param {Service} $locationProvider Used for setting html5mode */
-function customerModuleConfig( $stateProvider) {
+function customerModuleConfig($stateProvider) {
 
     $stateProvider
         .state('customer', {
@@ -22,7 +22,7 @@ function customerModuleConfig( $stateProvider) {
         })
         .state('customer.list', {
             resolve: {
-                customers:  ['Customer', function(Customer){
+                customers: ['Customer', function (Customer) {
                     return Customer.list()
                 }]
             },
@@ -36,11 +36,11 @@ function customerModuleConfig( $stateProvider) {
         })
         .state('customer.edit', {
             resolve: {
-                customer:  ['$stateParams', 'Customer', '$state', function($stateParams, Customer, $state){
+                customer: ['$stateParams', 'Customer', '$state', function ($stateParams, Customer, $state) {
                     let customer;
-                    if($stateParams.email) {
+                    if ($stateParams.email) {
                         customer = Customer.getByEMail($stateParams.email);
-                        if(!customer) return $state.go('customer.notFound')
+                        if (!customer) return $state.go('customer.notFound')
                     }
                     return customer || {};
                 }]
@@ -57,7 +57,7 @@ function customerModuleConfig( $stateProvider) {
             url: '/not-found',
             views: {
                 'main@': {
-                   
+
                     template: customerNotFoundTemplate
                 }
             }

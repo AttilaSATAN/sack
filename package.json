@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "node dev-ser --mode development",
     "build": "rm -rf dist && webpack --mode production",
-    "test": "jest"
+    "test": "jest",
+    "tdd": "jest --watch"
   },
   "jest": {
     "transform": {
@@ -31,7 +32,8 @@
     "koa-route": "^3.2.0",
     "koa-static": "^4.0.3",
     "koa-views": "^6.1.4",
-    "open-iconic": "^1.1.1"
+    "open-iconic": "^1.1.1",
+    "webpack-dev-server": "^3.1.4"
   },
   "devDependencies": {
     "angular-mocks": "^1.7.1",

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <base href="/">
     <meta charset="utf-8">
@@ -8,26 +9,30 @@
     <title>Document</title>
     <link rel="stylesheet" href="main.css">
 </head>
-<body clasS="d-flex flex-column align-items-stretch">
+
+<body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
-        <a class="navbar-brand" href="/">Ultrasonic Customer Web Application </a> 
-        <button class="navbar-toggler" type="button" ng-click="vm.showMenu = !vm.showMenu" aria-controls="navbar-supported-content" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="/">Ultrasonic Customer Web Application </a>
+        <button class="navbar-toggler" type="button" ng-click="vm.showMenu = !vm.showMenu" aria-controls="navbar-supported-content"
+            aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbar-supported-content" ng-class="{show:vm.showMenu}">
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item " ng-class="{active:uiState.$current.has('home')}">
-                <a class="nav-link" ui-sref="home">Home </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" ui-sref="customer.list">Customers</a>
-              </li>
+                <li class="nav-item " ng-class="{active:uiState.$current.has('home')}">
+                    <a class="nav-link" ui-sref="home">Home </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" ui-sref="customer.list">Customers</a>
+                </li>
             </ul>
-        </div>   
+        </div>
     </nav>
-
-    <section ui-view="main"></section>
-    <section class="p-2 mt-auto align-bottom" >attila.satan@gmail.com</section>
+    <section class="d-flex flex-column align-items-stretch">
+        <section ui-view="main"></section>
+        <section class="p-2 mt-auto align-bottom">attila.satan@gmail.com</section>
+    </section>
 </body>
 <script src="main.js"></script>
+
 </html>

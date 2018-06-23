@@ -1,12 +1,12 @@
 <div class="p-3 p-md-5 text-white bg-dark">
     <div class="col-md-12 px-0">
       <h1 class="display-4 font-italic">Customer List </h1>
-      <p class="lead mb-0"><a class="text-white font-weight-bold" ui-sref="customer.edit({email:null})">Add Customer</a></p>
+      <p class="lead mb-0"><a class="text-white font-weight-bold" ui-sref="customer.edit({id:null})">Add Customer</a></p>
     </div>
   </div>
 
 <div class="p-2 list-group">
-    <a ui-sref="customer.edit({email:customer.email})" class="list-group-item list-group-item-action" ng-repeat="customer in vm.customers track by customer.email">
+    <a ui-sref="customer.edit({id:customer.id})" class="list-group-item list-group-item-action" ng-repeat="customer in vm.customers track by customer.email">
         {{customer.name}}
     </a>
 </div>

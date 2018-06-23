@@ -38,14 +38,14 @@ function customerModuleConfig($stateProvider) {
             resolve: {
                 customer: ['$stateParams', 'Customer', '$state', function ($stateParams, Customer, $state) {
                     let customer;
-                    if ($stateParams.email) {
-                        customer = Customer.getByEMail($stateParams.email);
+                    if ($stateParams.id) {
+                        customer = Customer.getById($stateParams.id);
                         if (!customer) return $state.go('customer.notFound')
                     }
                     return customer || {};
                 }]
             },
-            url: '/edit/:email',
+            url: '/edit/:id',
             views: {
                 'main@': {
                     controller: 'CustomerEditController as vm',

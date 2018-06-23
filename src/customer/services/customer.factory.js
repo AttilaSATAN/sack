@@ -1,14 +1,12 @@
-// import CustomerRegistrationError from '../../error/services/customer-registration-error';
-
 CustomerFactory.$inject = ['CustomerRegistrationError'];
 /**
  * @ngdoc service
  * @name customer.service:CustomerFactory
- * @constructor
  * @description
  * Represantation of customer
  */
 function CustomerFactory(CustomerRegistrationError){
+
 
     class Customer {
         constructor(customer) {
@@ -31,11 +29,17 @@ function CustomerFactory(CustomerRegistrationError){
                 throw new CustomerRegistrationError('Please fill all the fields.')
             }
             if(!this.id && this.id !== 0) { //create
-                //TODO: (optional) check for email
+                for(let i in Customer.collection){
+                    if(Customer.collection[i].email === this.email) {
+                        throw new CustomerRegistrationError('This email is in use.')
+                    }
+               
+                }
                 Customer.collection.push(this);
                 this.id = Customer.collection.length -1; //ugly but effective in this context;
                 return Promise.resolve(this);
             }
+
             for(let i in Customer.collection){
                 if(Customer.collection[i].id === this.id) {
                     Customer.collection[i] = this;
@@ -45,17 +49,17 @@ function CustomerFactory(CustomerRegistrationError){
         }
     }
     
-    Customer.getByEMail = getByEMail;
+    Customer.getById = getById;
     Customer.list = list;
     Customer.collection = [
         new Customer({
-            id:0,
+            id:1,
             email: 'attila.satan@gmail.com',
             name: 'Attila Satan',
             country: 'Turkey',
             city: 'Ankara',
         }), new Customer({
-            id:1,
+            id:2,
             email: 'cigdem.satan@gmail.com',
             name: 'Çiğdem Satan',
             country: 'Turkey',
@@ -66,15 +70,15 @@ function CustomerFactory(CustomerRegistrationError){
     
     /**
      * @ngdoc
-     * @name custom.service.Customer.getByEMail
-     * @description Finds customer by emain and returs if its exist. Else returns nul.
+     * @name custom.service.Customer.getById
+     * @description Finds customer by id and returs if its exist. Else returns nul.
      * @param {string} mail Customer email.
      * @returns {Customer||null} Customer found base on mail. 
      */
-    function getByEMail(email) {
+    function getById(id) {
     
         for (let c of this.collection) {
-            if (c.email === email)
+            if (c.id === 1 * id)
                 return new Customer(c);
         }
     

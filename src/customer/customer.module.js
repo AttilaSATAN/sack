@@ -18,9 +18,4 @@ const customer = angular.module('customer', ['ui.router', 'error'])
   .factory('Customer', CustomerFactory)
   .controller('CustomerListController', CustomerListController)
   .controller('CustomerEditController', CustomerEditController);
-
-
-
-
-
 export default customer;

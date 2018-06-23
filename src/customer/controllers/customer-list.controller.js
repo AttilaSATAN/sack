@@ -12,8 +12,8 @@ class CustomerListController {
     const vm = this;
     vm.customers = customers;
   }
-
 }
+
 CustomerListController.$inject = ['customers'];
 
 export default CustomerListController;

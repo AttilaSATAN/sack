@@ -7,5 +7,3 @@ const root = angular.module('root', ['ui.router', 'ngMessages', 'error', 'custom
   }]);
 
 
-angular.bootstrap(document, ['root']);
-  export default root;

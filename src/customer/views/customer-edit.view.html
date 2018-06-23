@@ -5,7 +5,6 @@
       <p class="lead mb-0"><a class="text-white font-weight-bold">{{vm.customer.city}}</a></p>
       <p class="lead mb-0"><a class="text-white font-weight-bold">{{vm.customer.country}}</a></p>
     </div>
-    {{vm.edit}}
     <form ng-if="vm.edit" name="customerEditForm" ng-submit="vm.save()">
         <div class="form-group" >
           <label for="nameInput">Customer Name</label>
@@ -30,4 +29,4 @@
           <button type="submit" class="btn btn-primary" >Save</button>
     </form>
   </div>
-  <div class="error-alert">Error var ulan</div>
+  <div class="error-alert text-light" ng-if="vm.error">{{vm.error.message}}</div>

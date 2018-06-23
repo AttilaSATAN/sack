@@ -1,7 +1,6 @@
 class CustomerEditController{
     constructor($scope, customer, Customer){
 
-        const vm = this;
         this.scope = $scope;
         this.customer = customer;
 
@@ -11,10 +10,13 @@ class CustomerEditController{
         }
     }
     async save(){
+        
+        this.error = null;
+
         try {
             await this.customer.save();
         } catch(e){
-            
+            return this.scope.$apply(()=>{this.error = e;})
         }
 
         this.scope.$apply(()=>{this.edit = false;})

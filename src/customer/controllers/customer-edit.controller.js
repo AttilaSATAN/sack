@@ -1,3 +1,12 @@
+
+/**
+  * @this vm
+  * @ngdoc controller
+  * @name customer.controller:CustomerEditController
+  *
+  * @description
+  * Controller for customer edit page.
+*/
 class CustomerEditController{
     constructor($scope, customer, Customer){
 

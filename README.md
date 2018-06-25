@@ -1,3 +1,53 @@
 # webpack-jest-es6-sass-angularjs-seed
 
-Blueprint for front-end Angular.js applications.
+A blueprint for developing modern Angular.js applications.
+
+
+### It Contains
+
+* ES6 modules
+* Testing with JEST and TDD commands
+* Build tools with Webpack
+* Dev server with automated builds
+* Angular.js (1.7.1)
+* UI-Router
+* SASS
+* Intagrated Bootstrap 4 with exposed variables for easy theme-ability
+* Only NPM dependencies
+* Easy mocking thanks to ES6 import
+* Bateries Included
+
+### Installation
+
+Just clone and run NPM install 
+
+
+```
+
+git clone git@github.com:AttilaSATAN/webpack-jest-es6-sass-angularjs-seed
+cd webpack-jest-es6-sass-angularjs-seed
+npm i
+
+```
+
+### Commands
+
+Run dev server
+```
+npm run dev
+```
+
+Run tests
+```
+npm test
+```
+
+Test watching (Continuous Testing)
+```
+npm run tdd
+```
+
+Build for production
+```
+npm run build
+```

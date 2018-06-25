@@ -10,6 +10,10 @@
     "tdd": "jest --watch"
   },
   "jest": {
+    "modulePathIgnorePatterns": [
+      "/node_modules/",
+      "/\\.git/"
+    ],
     "transform": {
       "^.+\\.js?$": "babel-jest",
       "^.+\\.(html|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test/util/html-loader.js"

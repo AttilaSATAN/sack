@@ -4,13 +4,12 @@
  * @name customer.controller:CustomerListController
  *
  * @description
- * Main Controller for customer
+ * Controller for customer list page
  */
 class CustomerListController {
   constructor(customers) {
 
-    const vm = this;
-    vm.customers = customers;
+    this.customers = customers;
   }
 }
 

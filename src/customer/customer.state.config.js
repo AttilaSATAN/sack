@@ -5,8 +5,9 @@ import customerEditTemplate from './views/customer-edit.view.html';
 import customerNotFoundTemplate from './views/customer-not-found.view.html';
 
 customerModuleConfig.$inject = ['$stateProvider'];
+
 /**
- * Configures ui-router's states.
+ * @description Configures ui-router's states.
  * @memberof customer
  * @ngdoc config
  * @name customerModuleConfig
@@ -22,9 +23,7 @@ function customerModuleConfig($stateProvider) {
         })
         .state('customer.list', {
             resolve: {
-                customers: ['Customer', function (Customer) {
-                    return Customer.list()
-                }]
+                customers: customersResolver
             },
             url: '/list',
             views: {
@@ -36,14 +35,7 @@ function customerModuleConfig($stateProvider) {
         })
         .state('customer.edit', {
             resolve: {
-                customer: ['$stateParams', 'Customer', '$state', function ($stateParams, Customer, $state) {
-                    let customer;
-                    if ($stateParams.id) {
-                        customer = Customer.getById($stateParams.id);
-                        if (!customer) return $state.go('customer.notFound')
-                    }
-                    return customer || {};
-                }]
+                customer: customerResolverById
             },
             url: '/edit/:id',
             views: {
@@ -64,4 +56,21 @@ function customerModuleConfig($stateProvider) {
         });
 }
 
-export default customerModuleConfig;
+customersResolver.$inject = ['Customer'];
+
+function customersResolver(Customer) {
+    return Customer.list();
+}
+
+customerResolverById.$inject = ['$stateParams', 'Customer', '$state'];
+
+function customerResolverById  ($stateParams, Customer, $state) {
+    let customer;
+    if ($stateParams.id) {
+        customer = Customer.getById($stateParams.id);
+        if (!customer) return $state.go('customer.notFound')
+    }
+    return customer || {};
+}
+
+export default {customersResolver, customerResolverById, customerModuleConfig}

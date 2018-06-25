@@ -1,3 +1,13 @@
+ 
+ 
+/**
+  * @ngdoc service
+  * @name error.CustomerRegistrationErrorFactory
+  * 
+  * @description
+  * Provides CustomerRegistrationError
+  *
+**/
  function CustomerRegistrationErrorFactory(){
 
     return class CustomerRegistrationError extends Error {

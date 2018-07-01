@@ -73,4 +73,4 @@ function customerResolverById  ($stateParams, Customer, $state) {
     return customer || {};
 }
 
-export default {customersResolver, customerResolverById, customerModuleConfig}
+export default customerModuleConfig;

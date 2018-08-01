@@ -1,6 +1,6 @@
 # webpack-jest-es6-sass-angularjs-seed
 
-A blueprint for developing modern Angular.js applications.
+A blueprint for developing modern AngularJS applications.
 
 
 ### It Contains
@@ -24,8 +24,8 @@ Just clone and run NPM install
 
 ```
 
-git clone git@github.com:AttilaSATAN/webpack-jest-es6-sass-angularjs-seed
-cd webpack-jest-es6-sass-angularjs-seed
+git clone git@github.com:AttilaSATAN/sack
+cd sack
 npm i
 
 ```

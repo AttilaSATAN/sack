@@ -1,20 +1,21 @@
-# webpack-jest-es6-sass-angularjs-seed
+# SACK
 
-A blueprint for developing modern AngularJS applications.
+
+## A stack for developing modern AngularJS applications with WebPack, Jest, ES7, Bootstrap, SCSS and UI-Router seed.
 
 
 ### It Contains
 
-* ES6 modules
+* ES7 modules
 * Testing with JEST and TDD commands
-* Build tools with Webpack
+* Build tools with WebPack
 * Dev server with automated builds
 * Angular.js (1.7.1)
 * UI-Router
 * SASS
 * Intagrated Bootstrap 4 with exposed variables for easy theme-ability
 * Only NPM dependencies
-* Easy mocking thanks to ES6 import
+* Easy mocking thanks to ES7 imports
 * Bateries Included
 
 ### Installation

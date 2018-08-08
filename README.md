@@ -1,7 +1,7 @@
 # SACK
 
 
-## A stack for modern AngularJS applications with WebPack, Jest, ES7, Bootstrap 4, SCSS and UI-Router seed.
+## A stack for modern AngularJS applications with WebPack, Jest, ES7, Bootstrap 4, SCSS and UI-Router.
 
 
 ### It Contains
